@@ -106,8 +106,7 @@ console.log("CURRENT USDTTRc",currentUser)
             }
           );
         }
-        const result = await uploadResult.json();
-        if (result.status === 200) {
+        if (uploadResult?.status === 200) {
           Toast.show({
             type: 'success',
             text1: 'Success',
@@ -115,13 +114,11 @@ console.log("CURRENT USDTTRc",currentUser)
           });
           setImage(null);
           setDepositAmount(null);
-          console.log('RESULT', result);
         } else {
-          console.log('RESULT ERROR', result);
           Toast.show({
             type: 'error',
             text1: 'Error',
-            text2: `${result?.error?.message}`,
+            text2: `Something went wrong`,
           });
         }
       } catch (e) {
